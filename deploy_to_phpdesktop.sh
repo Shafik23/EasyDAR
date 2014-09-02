@@ -9,6 +9,18 @@
 if [[ $1 == "" ]]
 then 
    echo "Usage: $0 <destination phpdesktop root-folder>"
+   exit 2
 fi
 
+echo "This will copy files (and clobber) over <$1>."
+read -p "Are you sure you want to continue? (type 'yes' to confirm) " decision
+
+if [[ $decision != "yes" ]]
+then 
+   echo "Aborting ..."
+   exit 3
+fi
+
+
+echo
 
