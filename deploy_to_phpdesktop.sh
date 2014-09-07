@@ -6,6 +6,8 @@
 # Note: phpdesktop is standalone php-app environment. For more information, see here: https://code.google.com/p/phpdesktop/
 
 
+set -e   # exit on any error
+
 if [[ $1 == "" ]]
 then 
    echo "Usage: $0 <destination phpdesktop root-folder>"
@@ -21,6 +23,12 @@ then
    exit 3
 fi
 
+dest=$1
 
-echo
+
+cp *_settings.json $dest/settings.json
+cp index.html $dest/www/
+cp -r formoid_files $dest/www/
+
+echo "Done"
 
