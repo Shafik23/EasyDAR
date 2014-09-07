@@ -12,10 +12,10 @@
     "main_window": {
         "title": "EasyDAR - Colissa Pollard special edition",
         "icon": "",
-        "default_size": [1024, 768],
-        "minimum_size": [800, 600],
-        "maximum_size": [0, 0],
-        "disable_maximize_button": false,
+        "default_size": [640, 480],
+        "minimum_size": [640, 480],
+        "maximum_size": [640, 480],
+        "disable_maximize_button": true,
         "center_on_screen": true,
         "start_maximized": false,
         "start_fullscreen": false

@@ -30,5 +30,5 @@ cp *_settings.json $dest/settings.json
 cp index.html $dest/www/
 cp -r formoid_files $dest/www/
 
-echo "Done"
+echo "Done."
 
