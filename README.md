@@ -1,4 +1,4 @@
-# EasyDAR - a Digital Audit Report generator, based on the wonderful SEOStats project.
+# EasyDAR - a Digital Audit Report generator, based on the wonderful SEOstats project.
 
 -----
 
