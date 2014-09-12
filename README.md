@@ -1,4 +1,6 @@
-[![Flattr SEOstats](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=eyecatchup&url=https://github.com/eyecatchup/SEOstats&title=SEOstats&language=en&tags=github&category=software)
+# EasyDAR - a Digital Audit Report generator, based on the wonderful SEOStats project.
+
+-----
 
 # SEOstats: SEO metrics library for PHP
 
@@ -453,6 +455,5 @@ More detailed examples can be found in the `./example` directory.
 
 ## License
 
-(c) 2010 - 2014, Stephan Schmitz eyecatchup@gmail.com  
-License: MIT, http://eyecatchup.mit-license.org  
-URL: https://github.com/eyecatchup/SEOstats  
+(c) 2014, Shafik Amin shafik23@gmail.com  
+License: MIT, http://opensource.org/licenses/MIT
