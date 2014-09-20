@@ -29,6 +29,7 @@ dest=$1
 cp *_settings.json $dest/settings.json
 cp index.html $dest/www/
 cp -r easydar.formoid_files $dest/www/
+cp -r Gui $dest/www/
 
 echo "Done."
 
