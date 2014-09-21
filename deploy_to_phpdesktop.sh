@@ -27,9 +27,12 @@ dest=$1
 
 
 cp *_settings.json $dest/settings.json
+cp php.ini $dest/php/
+
 cp index.html $dest/www/
 cp -r easydar.formoid_files $dest/www/
 cp -r Gui $dest/www/
+cp -r SEOstats $dest/www/
 
-echo "Done."
+echo "EasyDAR deployed successfully."
 
