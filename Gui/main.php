@@ -6,8 +6,7 @@ require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'SEOStats'.DIR
 use \SEOstats\Services as SEO;
 
 
-echo "EasyDar, v0.1"; 
-line(2);
+echo_line("EasyDar, v0.1", 2);
 
 $business_name = $_GET['business_name'];
 $business_url = $_GET['business_url'];
@@ -15,17 +14,12 @@ $business_url = 'http://www.cnn.com';
 $business_city_state = $_GET['business_city_state'];
 $keywords = $_GET['keywords'];
 
-echo "Business name: " . $business_name;
-line();
-echo "URL: " . $business_url;
-line();
-echo "City, State: " . $business_city_state;
-line();
-echo "Search Engine keywords: " . $keywords;
-line();
+echo_line("Business name: " . $business_name);
+echo_line("URL: " . $business_url);
+echo_line("City, State: " . $business_city_state);
+echo_line("Search Engine keywords: " . $keywords);
 
-echo "----------------";
-line(2);
+echo_line("----------------", 2);
 
 
 try
@@ -41,7 +35,23 @@ catch (\SEOstats\Common\SEOstatsException $e)
 }
 
 
-echo "Google PageRank: " . SEO\Google::getPageRank();
+echo_line("Google PageRank: " . SEO\Google::getPageRank());
+echo_line("Google SiteIndex: " . SEO\Google::getSiteIndexTotal());
+echo_line("Google number of results for a search on given keywords: " . SEO\Google::getSearchResultsTotal($keywords));
+
+# these require an API key from Google
+//print_r("Google PageSpeed Analysis: " . SEO\Google::getPageSpeedAnalysis());
+//echo "Google PageSpeed final score: " . SED\Google::getPageSpeedScore();
+
+echo_line("----------------", 2);
+
+# these require an API key from Mozscape
+//echo_line("MozRank score, out of 10 points: " . SEO\Mozscape::getMozRank());
+//echo_line("Mozscape Search Engine rank score, out of 100 points: " . SEO\Mozscape::getPageAuthority());
+//echo_line("Mozscape Search Engine domain rank score, out of 100 points: " . SEO\Mozscape::getDomainAuthority());
+
+echo_line("----------------", 2);
+
 
 
 
@@ -53,6 +63,13 @@ function line($n = 1)
       $n--;
    }
 }
+
+function echo_line($str, $n = 1)
+{
+   echo $str;
+   line($n);
+}
+
 
 ?>
 
