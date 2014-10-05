@@ -13,10 +13,13 @@ $business_url = $_GET['business_url'];
 $business_url = 'http://www.cnn.com';
 $business_city_state = $_GET['business_city_state'];
 $keywords = $_GET['keywords'];
+$google_key = $_GET['google_key'];
 
 echo_line("Business name: " . $business_name);
 echo_line("URL: " . $business_url);
 echo_line("City, State: " . $business_city_state);
+if (!empty($google_key))
+   echo_line("Google API Key: " . $google_key);
 echo_line("Search Engine keywords: " . $keywords);
 
 echo_line("----------------", 2);
