@@ -4,6 +4,7 @@
 
 require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'SEOStats'.DIRECTORY_SEPARATOR.'bootstrap.php';
 use \SEOstats\Services as SEO;
+use \SEOstats\Config as SEO_Config;
 
 
 echo_line("EasyDar, v0.1", 2);
@@ -43,8 +44,12 @@ echo_line("Google SiteIndex: " . SEO\Google::getSiteIndexTotal());
 echo_line("Google number of results for a search on given keywords: " . SEO\Google::getSearchResultsTotal($keywords));
 
 # these require an API key from Google
-//print_r("Google PageSpeed Analysis: " . SEO\Google::getPageSpeedAnalysis());
-//echo "Google PageSpeed final score: " . SED\Google::getPageSpeedScore();
+if (!empty($google_key))
+{
+   SEO_Config\ApiKeys::$GOOGLE_SIMPLE_API_ACCESS_KEY = $google_key;
+   //echo "Google PageSpeed Analysis: " . SEO\Google::getPageSpeedAnalysis();
+   echo_line("Google PageSpeed final score: " . SEO\Google::getPageSpeedScore());
+}
 
 echo_line("----------------", 2);
 
@@ -66,6 +71,7 @@ function line($n = 1)
       $n--;
    }
 }
+
 
 function echo_line($str, $n = 1)
 {
