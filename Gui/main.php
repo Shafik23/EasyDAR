@@ -47,7 +47,11 @@ echo_line("Google number of results for a search on given keywords: " . SEO\Goog
 if (!empty($google_key))
 {
    SEO_Config\ApiKeys::$GOOGLE_SIMPLE_API_ACCESS_KEY = $google_key;
-   //echo "Google PageSpeed Analysis: " . SEO\Google::getPageSpeedAnalysis();
+   echo_line("Google PageSpeed Analysis: ");
+   echo_line("<pre>");
+   print_r(SEO\Google::getPageSpeedAnalysis());
+   echo_line("</pre>");
+   line();
    echo_line("Google PageSpeed final score: " . SEO\Google::getPageSpeedScore());
 }
 
@@ -59,8 +63,6 @@ echo_line("----------------", 2);
 //echo_line("Mozscape Search Engine domain rank score, out of 100 points: " . SEO\Mozscape::getDomainAuthority());
 
 echo_line("----------------", 2);
-
-
 
 
 function line($n = 1)
