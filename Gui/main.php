@@ -15,6 +15,7 @@ $business_url = 'http://www.cnn.com';
 $business_city_state = $_GET['business_city_state'];
 $keywords = $_GET['keywords'];
 $google_key = $_GET['google_key'];
+define('NUMBER_OF_SERPS', 100);
 
 echo_line("Business name: " . $business_name);
 echo_line("URL: " . $business_url);
@@ -26,6 +27,7 @@ echo_line("Search Engine keywords: " . $keywords);
 echo_line("----------------", 2);
 
 
+# attempt to construct an SEOStats object
 try
 {
    $seo = new \SEOstats\SEOstats($business_url);
@@ -49,13 +51,24 @@ if (!empty($google_key))
    SEO_Config\ApiKeys::$GOOGLE_SIMPLE_API_ACCESS_KEY = $google_key;
    echo_line("Google PageSpeed Analysis: ");
    echo_line("<pre>");
-   print_r(SEO\Google::getPageSpeedAnalysis());
+   //print_r(SEO\Google::getPageSpeedAnalysis());
+   echo_line("Disabled for now.");
    echo_line("</pre>");
    line();
    echo_line("Google PageSpeed final score: " . SEO\Google::getPageSpeedScore());
 }
 
 echo_line("----------------", 2);
+
+
+# SERP analysis
+echo_line("Google SERPs: ");
+echo_line("<pre>");
+print_r(SEO\Google::getSerps($keywords, NUMBER_OF_SERPS, $business_url));
+echo_line("</pre>");
+
+echo_line("----------------", 2);
+
 
 # these require an API key from Mozscape
 //echo_line("MozRank score, out of 10 points: " . SEO\Mozscape::getMozRank());

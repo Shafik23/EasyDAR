@@ -98,7 +98,7 @@ class HttpRequest
         curl_setopt_array($ch, array(
             CURLOPT_USERAGENT       => $ua,
             CURLOPT_RETURNTRANSFER  => 1,
-            CURLOPT_CONNECTTIMEOUT  => 30,
+            CURLOPT_CONNECTTIMEOUT  => 60,
             CURLOPT_FOLLOWLOCATION  => 1,
             CURLOPT_MAXREDIRS       => 2,
             CURLOPT_SSL_VERIFYPEER  => 0,
