@@ -41,9 +41,9 @@ catch (\SEOstats\Common\SEOstatsException $e)
 }
 
 
-echo_line("Google PageRank: " . SEO\Google::getPageRank());
-echo_line("Google SiteIndex: " . SEO\Google::getSiteIndexTotal());
-echo_line("Google number of results for a search on given keywords: " . SEO\Google::getSearchResultsTotal($keywords));
+echo_line("Google PageRank: " . $seo->Google()->getPageRank());
+echo_line("Google SiteIndex: " . $seo->Google()->getSiteIndexTotal());
+echo_line("Google number of results for a search on given keywords: " . $seo->Google()->getSearchResultsTotal($keywords));
 
 # these require an API key from Google
 if (!empty($google_key))
@@ -55,7 +55,7 @@ if (!empty($google_key))
    echo_line("Disabled for now.");
    echo_line("</pre>");
    line();
-   echo_line("Google PageSpeed final score: " . SEO\Google::getPageSpeedScore());
+   echo_line("Google PageSpeed final score: " . $seo->Google()->getPageSpeedScore());
 }
 
 echo_line("----------------", 2);
@@ -64,16 +64,26 @@ echo_line("----------------", 2);
 # SERP analysis
 echo_line("Google SERPs: ");
 echo_line("<pre>");
-print_r(SEO\Google::getSerps($keywords, NUMBER_OF_SERPS, $business_url));
+print_r($seo->Google()->getSerps($keywords, NUMBER_OF_SERPS, $business_url));
 echo_line("</pre>");
 
 echo_line("----------------", 2);
 
 
-# these require an API key from Mozscape
-//echo_line("MozRank score, out of 10 points: " . SEO\Mozscape::getMozRank());
-//echo_line("Mozscape Search Engine rank score, out of 100 points: " . SEO\Mozscape::getPageAuthority());
-//echo_line("Mozscape Search Engine domain rank score, out of 100 points: " . SEO\Mozscape::getDomainAuthority());
+# Social media scores
+$sm_array = [
+               "getGooglePlusShares" => "Google Plus Shares",
+               "getTwitterShares" => "Twitter Shares",
+               "getLinkedInShares" => "LinkedIn Shares",
+               "getPinterestShares" => "Pinterest Shares",
+               "getStumbleUponShares" => "StumbleUpon Shares"
+            ];
+
+foreach (array_keys($sm_array) as $m)
+{
+   echo_line($sm_array[$m] . " : " . $seo->Social()->$m());
+}
+
 
 echo_line("----------------", 2);
 
